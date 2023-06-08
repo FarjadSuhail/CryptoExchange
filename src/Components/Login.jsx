@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import Alert from "react-bootstrap/Alert";
+import RouterFile from "./RouterFile";
 
 function Login(props) {
     const [email, setEmail] = useState("");
@@ -56,52 +57,55 @@ function Login(props) {
         setPassword("");
     }
     return (
-        <div className="container row">
-            <div className="col-lg-6 mx-auto">
-                <p>Login Page</p>
-                {showAlert && (
-                    <Alert
-                        variant="success"
-                        onClose={() => setShowAlert(false)}
-                        dismissible
-                    >
-                        Login Successful
-                    </Alert>
-                )}
-                {showErrorAlert && (
-                    <Alert
-                        variant="danger"
-                        onClose={() => setShowAlert(false)}
-                        dismissible
-                    >
-                        {showErrorAlert}
-                    </Alert>
-                )}
-                <Form onSubmit={submitHandler}>
-                    <Form.Group controlId="email">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control
-                            type="email"
-                            placeholder="Enter Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            type="password"
-                            placeholder="Enter Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Button type="submit" className="mt-2" disabled={isBlocked}>
-                        Submit
-                    </Button>
-                </Form>
+        <>
+            <RouterFile />
+            <div className="container row">
+                <div className="col-lg-6 mx-auto">
+                    <p>Login Page</p>
+                    {showAlert && (
+                        <Alert
+                            variant="success"
+                            onClose={() => setShowAlert(false)}
+                            dismissible
+                        >
+                            Login Successful
+                        </Alert>
+                    )}
+                    {showErrorAlert && (
+                        <Alert
+                            variant="danger"
+                            onClose={() => setShowAlert(false)}
+                            dismissible
+                        >
+                            {showErrorAlert}
+                        </Alert>
+                    )}
+                    <Form onSubmit={submitHandler}>
+                        <Form.Group controlId="email">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                type="email"
+                                placeholder="Enter Email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="password">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="Enter Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Button type="submit" className="mt-2" disabled={isBlocked}>
+                            Submit
+                        </Button>
+                    </Form>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

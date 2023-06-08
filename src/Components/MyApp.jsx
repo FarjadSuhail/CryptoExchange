@@ -5,6 +5,7 @@ import Signup from './Signup';
 import Footer from './Footer';
 
 import { useState, useEffect } from "react";
+import RouterFile from './RouterFile';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 function MyApp() {
@@ -38,13 +39,14 @@ function MyApp() {
     }
     return (
         <>
+            <RouterFile />
             <Header isLoggedIn={isLoggedIn} />
             <div className="border-bottom my-3"></div>
-            <Login users={users} checkLogin={loggedInHandler} />
+            {/* <Login users={users} checkLogin={loggedInHandler} /> */}
             <div className="border-bottom my-3"></div>
             <Signup addNewUser={addUserHandler} />
             <div className="border-bottom my-5"></div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }
