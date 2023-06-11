@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import Alert from "react-bootstrap/Alert";
-
+import Header from "./Header";
 function Signup(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -46,7 +46,9 @@ function Signup(props) {
         setIsFilePicked(false);
     }
     return (
+        
         <div className="container row">
+            <Header isLoggedIn={props.isLoggedIn} />
             <div className="col-lg-6 mx-auto">
                 <p>Signup Page</p>
                 {showAlert && (

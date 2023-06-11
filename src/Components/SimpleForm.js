@@ -2,10 +2,11 @@ import { Input, InputNumber, Button, Space, Table, Tag } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import { Form } from 'react-bootstrap'; 
+import Header from './Header';
 const { Column, ColumnGroup } = Table;
 
 
-const SimpleForm = () => {
+const SimpleForm = (props) => {
     // const layout = {
     //     labelCol: { span: 8 },
     //     wrapperCol: { span: 16 },
@@ -110,6 +111,7 @@ const SimpleForm = () => {
 
     return (
     <>
+    <Header isLoggedIn={props.isLoggedIn} />
     <PlusOutlined onClick={() => addBlogHandler()}/>
     
   <Table dataSource={data}>

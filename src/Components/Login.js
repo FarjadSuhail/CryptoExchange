@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import Alert from "react-bootstrap/Alert";
+import Header from "./Header";
+import { useNavigate } from "react-router-dom"
 
 function Login(props) {
     const [email, setEmail] = useState("");
@@ -9,7 +11,7 @@ function Login(props) {
     const [showAlert, setShowAlert] = useState(false);
     const [showErrorAlert, setShowErrorAlert] = useState('');
     const [isBlocked, setIsBlocked] = useState(false);
-
+    const navigate = useNavigate();
     const showErrorMessageAlert = (message) => {
         setShowErrorAlert(message);
         setTimeout(() => {
@@ -40,6 +42,9 @@ function Login(props) {
                 props.checkLogin({ isLoggedIn: true });
                 setCount(0);
                 showSuccessAlert(true);
+                setTimeout(()=> {
+                    navigate('/crud');
+                },3000)
             }
         }
         //set this according to count
@@ -57,6 +62,7 @@ function Login(props) {
     }
     return (
         <div className="container row">
+            <Header isLoggedIn={props.isLoggedIn} />
             <div className="col-lg-6 mx-auto">
                 <p>Login Page</p>
                 {showAlert && (

@@ -7,19 +7,19 @@ import Footer from './Footer';
 import { useState, useEffect } from "react";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
-function MyApp() {
+function MyApp(props) {
 
-    const defaultUsers = [
-        {
-            name: "farjad",
-            email: 'farjad@gmail.com',
-            password: 'password',
-            address: 'x-town',
-            selectedFile: 'Test_File.pdf'
-        }
-    ]
+    // const defaultUsers = [
+    //     {
+    //         name: "farjad",
+    //         email: 'farjad@gmail.com',
+    //         password: 'password',
+    //         address: 'x-town',
+    //         selectedFile: 'Test_File.pdf'
+    //     }
+    // ]
 
-    const [users, setUser] = useState(defaultUsers)
+    const [users, setUser] = useState(props.users)
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
@@ -40,9 +40,9 @@ function MyApp() {
         <>
             <Header isLoggedIn={isLoggedIn} />
             <div className="border-bottom my-3"></div>
-            <Login users={users} checkLogin={loggedInHandler} />
+             <Login users={users} checkLogin={loggedInHandler} />
             <div className="border-bottom my-3"></div>
-            <Signup addNewUser={addUserHandler} />
+             {/* <Signup addNewUser={addUserHandler} isLoggedIn={isLoggedIn} /> */}
             <div className="border-bottom my-5"></div>
             <Footer />
         </>
