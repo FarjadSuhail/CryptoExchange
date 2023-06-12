@@ -11,24 +11,25 @@ const SimpleForm = (props) => {
     //     labelCol: { span: 8 },
     //     wrapperCol: { span: 16 },
     //   };
+    const styleGray = {textAlign : 'right', width:'60%'};
     const blog = [
         {
           key: 1,
           title: 'John',
           subTitle: 'Brown',
-          author: '32',
+          author: 'Steve Smith',
         },
         {
           key: 2,
           title: 'John',
           subTitle: 'Brown',
-          author: '32',
+          author: 'Peter Parker',
         },
         {
           key: 3,
           title: 'John',
           subTitle: 'Brown',
-          author: '32',
+          author: 'Ethen',
         }
       ]
       
@@ -112,8 +113,9 @@ const SimpleForm = (props) => {
     return (
     <>
     <Header isLoggedIn={props.isLoggedIn} />
+    <div style={styleGray}>
     <PlusOutlined onClick={() => addBlogHandler()}/>
-    
+    </div>
   <Table dataSource={data}>
     {/* <ColumnGroup title="Name"> */}
       <Column title="Blog ID" dataIndex="key" key="key" />

@@ -13,12 +13,7 @@ import Dashboard from "./Components/Dashboard";
 import Logout from './Components/Logout';
 import SimpleForm from './Components/SimpleForm';
 import Home from './Components/Home';
-
-// import NoMatch from "./Components/NoMatch/NoMatch";
-// import LocalState from "./Components/LocalState/LocalState";
-// import MemoizeComponent from "./Components/Memoization";
-// import LazyLoading from "./Components/LazyLoading";
-// import ImmutableData from "./Components/ImmutableData/ImmutableData";
+import Transfer from './Components/Transfer';
 import ProtectedRoute from "./ProtectedRoute";
 
 
@@ -58,6 +53,10 @@ const loggedInHandler = (flag) => {
         <Route path="/dashboard" element={
           <ProtectedRoute isAllowed={isLoggedIn}>
           <Dashboard isLoggedIn={isLoggedIn} />
+          </ProtectedRoute>} />
+        <Route path="/transfer" element={
+          <ProtectedRoute isAllowed={isLoggedIn}>
+          <Transfer isLoggedIn={isLoggedIn} />
           </ProtectedRoute>} /> 
         <Route path="/crud" element={
           <ProtectedRoute isAllowed={isLoggedIn}>
